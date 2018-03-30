@@ -9,7 +9,7 @@ const archive=archiver('zip',{
     gzip:true,
     zlib:{level:9}
 });
-output.on('close',function() => {
+output.on('close',()=>{
     `${archiver.pointer()}total bytes`;
 });
 archive.pipe(output);

@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/LisangaSoft/gael#readme",
   "dependencies": {
-    "archiver": "^2.1.1",
-    "fs": "0.0.1-security"
+    "archiver": "^2.1.1"
   }
 }
