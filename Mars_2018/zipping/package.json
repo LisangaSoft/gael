@@ -1,0 +1,27 @@
+{
+  "name": "zipping",
+  "version": "1.0.0",
+  "description": "a script to zip files",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisangaSoft/gael.git"
+  },
+  "keywords": [
+    "files",
+    "zipping",
+    "stage"
+  ],
+  "author": "Gael et Dedrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LisangaSoft/gael/issues"
+  },
+  "homepage": "https://github.com/LisangaSoft/gael#readme",
+  "dependencies": {
+    "archiver": "^2.1.1"
+  }
+}
