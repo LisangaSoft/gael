@@ -1,0 +1,107 @@
+<div class="container">
+    <div style="border:1px solid black;margin-left: -70px;;padding-bottom:180px;margin-top: 20px; background-color: red; font-size: 15px;width: 1280px">
+        <h2 style="margin-left: 18px;font-family: sans-serif">UBA STUDENT</h2>
+        <a href="#/"></a>
+        <a  style="text-decoration: none; color: black" href="#/student">student|</a>
+        <a  style="text-decoration: none ; color: black" href="#/faculte">faculte|</a>
+        <a  style="text-decoration: none ; color: black" href="#/departement">departement</a>
+        <div class="row">
+            <div class="col-lg-5">
+                <button class="btn btn-primary" ng-click="etudiantCtrl.create()">add</button>
+                <div ng-switch="etudiantCtrl.state">
+                    <div ng-switch-default>
+            enregistrement des etudiants
+                    </div>
+                    <div ng-switch-when="enregistrer">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.nom" placeholder="NOM"  style="margin-top: 10px">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.postnom" placeholder="POSTNOM"  style="margin-top: 10px">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.prenom" placeholder="PRENOM"  style="margin-top: 10px">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.datenaiss" placeholder="DATE ex:2018-04-10"  style="margin-top: 10px">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.lieunaissance" placeholder="Lieu de naissance"  style="margin-top: 10px">
+                        <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.adresse" placeholder="Adresse"  style="margin-top: 10px">
+                        <div style="position: absolute;top:60px;left: 750px">
+                        <main class="app">
+                            <ng-camera
+                                    capture-message="Cheeeese!"
+                                    countdown="3"
+                                    output-height="160"
+                                    output-width="213"
+                                    viewer-height="320"
+                                    viewer-width="426"
+                                    image-format="jpeg"
+                                    jpeg-quality="100"
+                                    action-message="Take picture"
+                                    snapshot="etudiantCtrl.etudiant.picture"
+                                    flash-fallback-url="lib/vendors/webcamjs/webcam.swf"
+                                    overlay-url="/overlay.png"
+                                    shutter-url="/shutter.mp3"
+                                    ></ng-camera>
+                            <!-- for cropping:
+                                crop-height="90"
+                                crop-width="120"
+                            -->
+                            <img ng-if="etudiantCtrl.etudiant.picture" ng-src="{{etudiantCtrl.etudiant.picture}}"  alt="webcam picture">
+                        </main>
+                        </div>
+                          <select class="form-control input-lg" ng-model="etudiantCtrl.etudiant.faculteid"  style="margin-top: 10px">
+                              <option ng-repeat=" e in etudiantCtrl.facultes" value="{{e.faculte_id}}">{{e.nomfac+" "+e.nomdeparte+" "+e.niveau}}</option>
+                          </select>
+                          <button ng-click="etudiantCtrl.enregistreretud(etudiantCtrl.etudiant)" class="btn btn-primry"  style="margin-top: 10px">Enregistrer</button>
+                          <button ng-click="etudiantCtrl.init()" class="btn btn-primry"  style="margin-top: 10px">Initialiser</button>
+                      </div>
+                      <div ng-switch-when="modifier">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.nom" placeholder="NOM"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.postnom" placeholder="POSTNOM"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.prenom" placeholder="PRENOM"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.datenaiss" placeholder="ex:2018-04-10"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.lieu_naissance" placeholder="Lieu de naissance"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.adresse" placeholder="Adresse"  style="margin-top: 10px">
+                          <input type="text" class="form-control input-lg" ng-model="etudiantCtrl.etudiant.picture" placeholder="image"  style="margin-top: 10px">
+                          <select class="form-control input-lg" ng-model="etudiantCtrl.etudiant.faculteid"  style="margin-top: 10px">
+                              <option ng-repeat=" e in etudiantCtrl.facultes" value="{{e.faculte_id}}">{{e.nomfac+" "+e.nomdeparte+" "+e.niveau}}</option>
+                          </select>
+                          <button ng-click="etudiantCtrl.modifieretud(etudiantCtrl.etudiant)" class="btn btn-primary"  style="margin-top: 10px">Modifier</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row" >
+              <div class="col-lg-7" style="margin-left: 50px;margin-top: 130px;">
+                  <table class="table table-bordered table-striped table-responsive" style="margin-left: -50px">
+                      <thead>
+                      <tr class="success">
+                          <td>NOM</td>
+                          <td>POSTNOM</td>
+                          <td>PRENOM</td>
+                          <td>Date</td>
+                          <td>Lieu de naissance</td>
+                          <td>ADRESSE</td>
+                          <td>IMAGE</td>
+                          <td>FACULTE</td>
+                          <td>DEPARTEMENT</td>
+                          <td>PROMOTION</td>
+                          <td>supprimer</td>
+                          <td>modifier</td>
+                      </tr>
+                      </thead>
+                      <tbody ng-repeat="e in etudiantCtrl.etudiants">
+                      <td>{{e.nom}}</td>
+                      <td>{{e.postnom}}</td>
+                      <td>{{e.prenom}}</td>
+                      <td>{{e.datenaiss}}</td>
+                      <td>{{e.lieu_naissance}}</td>
+                      <td>{{e.adresse}}</td>
+                      <td><img  ng-src="{{etudiantCtrl.etudiant.picture}}" height="40px" width="50px"></td>
+                      <td>{{e.nomfac}}</td>
+                      <td>{{e.nomdeparte}}</td>
+                      <td>{{e.niveau}}</td>
+                      <td><button class="btn btn-danger" ng-click="etudiantCtrl.deleteetud(e.id)" >DELETE</button></td>
+                      <td><button class="btn btn-primary" ng-click="etudiantCtrl.update(e)">AFFICHER</button></td>
+                      </tbody>
+                  </table>
+                  <span>eleve-enregistrer={{etudiantCtrl.etudiant|json}} </span>
+                  <span>apprenants={{etudiantCtrl.etudiant|json}} </span>
+              </div>
+          </div>
+      </div>
+  </div>
