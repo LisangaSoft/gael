@@ -11,7 +11,10 @@ CREATE TABLE IF NOT EXISTS `departements` (
   `departement_id` int(11) NOT NULL AUTO_INCREMENT,
   `nomdeparte` varchar(25) NOT NULL,
   `niveau` varchar(25) NOT NULL,
-  PRIMARY KEY (`departement_id`)
+  `faculte_id` int(11) NOT NULL,
+  PRIMARY KEY (`departement_id`),
+  KEY `faculte_id` (`faculte_id`),
+  FOREIGN KEY (`faculte_id`) REFERENCES `facultes` (`faculte_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 --
 -- Table structure for table `etudiants`
@@ -25,10 +28,10 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
   `lieu_naissance` varchar(100) NOT NULL,
   `adresse` varchar(100) NOT NULL,
   `picture` varchar(100) NOT NULL,
-  `faculte_id` int(11) NOT NULL,
+  `departement_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `faculte_id` (`faculte_id`),
-  FOREIGN KEY (`faculte_id`) REFERENCES `facultes` (`faculte_id`)
+  KEY `departement_id` (`departement_id`),
+  FOREIGN KEY (`departement_id`) REFERENCES `departements` (`departement_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 --
 -- Dumping data for table `etudiants`
@@ -40,8 +43,5 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
 CREATE TABLE IF NOT EXISTS `facultes` (
   `faculte_id` int(11) NOT NULL AUTO_INCREMENT,
   `nomfac` varchar(25) NOT NULL,
-  `departement_id` int(11) NOT NULL,
   PRIMARY KEY (`faculte_id`),
-  KEY `departement_id` (`departement_id`),
-  FOREIGN KEY (`departement_id`) REFERENCES `departements` (`departement_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
