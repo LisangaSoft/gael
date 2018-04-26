@@ -43,5 +43,5 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
 CREATE TABLE IF NOT EXISTS `facultes` (
   `faculte_id` int(11) NOT NULL AUTO_INCREMENT,
   `nomfac` varchar(25) NOT NULL,
-  PRIMARY KEY (`faculte_id`),
+  PRIMARY KEY (`faculte_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
