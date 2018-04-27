@@ -8,13 +8,13 @@ SET collation_database = 'utf8_unicode_ci';
 -- Table structure for table `departements`
 --
 CREATE TABLE IF NOT EXISTS `departements` (
-  `departement_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nomdeparte` varchar(25) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `libele` varchar(25) NOT NULL,
   `niveau` varchar(25) NOT NULL,
   `faculte_id` int(11) NOT NULL,
-  PRIMARY KEY (`departement_id`),
+  PRIMARY KEY (`id`),
   KEY `faculte_id` (`faculte_id`),
-  FOREIGN KEY (`faculte_id`) REFERENCES `facultes` (`faculte_id`)
+  FOREIGN KEY (`faculte_id`) REFERENCES `facultes` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 --
 -- Table structure for table `etudiants`
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
   `departement_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `departement_id` (`departement_id`),
-  FOREIGN KEY (`departement_id`) REFERENCES `departements` (`departement_id`)
+  FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 --
 -- Dumping data for table `etudiants`
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
 -- Table structure for table `facultes`
 --
 CREATE TABLE IF NOT EXISTS `facultes` (
-  `faculte_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nomfac` varchar(25) NOT NULL,
-  PRIMARY KEY (`faculte_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `libele` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
