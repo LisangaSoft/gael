@@ -1,0 +1,24 @@
+<div class="container" id="list">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Numeros de serie</th>
+            <th scope="col">Etat de fonctionnement</th>
+            <th scope="col">Beneficiaire</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="m in listCtrl.materiel">
+            <td>{{m.noms}}</td>
+            <td>{{m.nums}}</td>
+            <td>{{m.fonctionnement}}</td>
+            <td>{{m.beneficiaires}}</td>
+            <td>{{m.marques}}</td>
+            <td><button type="submit" class="btn btn-primary"> Modifier</button></td>
+            <td><button type="submit" class="btn btn-danger"> Supprimer</button></td>
+        </tbody>
+    </table>
+</div>

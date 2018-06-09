@@ -1,0 +1,30 @@
+<div class="table-responsive" id="lc">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr class="bg-danger">
+                <th scope="col">Nom</th>
+                <th scope="col">Numeros de serie</th>
+                <th scope="col">Etat de fonctionnement</th>
+                <th scope="col">Beneficiaire</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="l in listmatcarCtrl.caracteri">
+                <td>{{l.noms}}</td>
+                <td>{{l.nuser}}</td>
+                <td>{{l.fonctionnement}}</td>
+                <td>{{l.beneficiaires}}</td>
+                <td>{{l.marques}}</td>
+                <td>{{l.dscript}}</td>
+                <td>{{l.type}}</td>
+                <td>{{l.categorie}}</td>
+                <td><button class="btn btn-primary"> Modifier</button></td>
+                <td><button class="btn btn-danger"> Supprimer</button></td>
+            </tbody>
+        </table>
+    </div>

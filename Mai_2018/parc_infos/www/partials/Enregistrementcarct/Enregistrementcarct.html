@@ -1,0 +1,89 @@
+<div class="container" id="caracteri">
+    <h3 style="font-weight: bold;color:#d61a0c;">Enregistrement du Materielle suivis de sa caracteristique</h3>
+    <hr>
+    <form>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Valeur</label>
+                <input type="text" ng-model="caractCtrl.matcaract.valeur" class="form-control" id="validationDefault01" placeholder="valeur" value="Tres robuste" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputFonction">Caracteristique</label>
+                <select id="inputFonction" ng-model="caractCtrl.matcaract.caracteristique_id" class="form-control">
+                    <option ng-repeat="c in caractCtrl.caracteriS " value="{{c.idc}}">{{c.description}}</option>
+                    <option data-toggle="modal" data-target="#car" data-whatever="@mdo">Ajouter la caracteristique</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputMark">Materielle</label>
+                <select id="inputMark" ng-model="caractCtrl.matcaract.Materielle_id" class="form-control">
+                    <option ng-repeat="m in caractCtrl.caracteris" value="{{m.ids}}">{{m.noms}}</option>
+                </select>
+            </div>
+            <div class="modal fade" id="car" tabindex="-1" role="dialog" aria-labelledby="carLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="carLabel">Enregistrement de la caracteristique</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-des" class="col-form-label">Description</label>
+                                    <input type="text" ng-model="caractCtrl.caracter.Description" class="form-control" id="recipient-des">
+                                </div>
+                                <div class="form-group">
+                                    <label for="serie-name" class="col-form-label">type</label>
+                                    <select id="inputtype" ng-model="caractCtrl.caracter.type_id" class="form-control">
+                                        <option ng-repeat="t in caractCtrl.type" value="{{t.ids}}">{{t.labele}}</option>
+                                        <option data-toggle="modal" data-target="#type" data-whatever="@mdo">Ajouter un type</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" ng-click="caractCtrl.enregistrementcatr(caractCtrl.caracter)" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="type" tabindex="-1" role="dialog" aria-labelledby="typeLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="typeLabel">Enregistrement du type</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-dep" class="col-form-label">Type</label>
+                                    <input type="text" ng-model="caractCtrl.types.label" class="form-control" id="recipient-dep">
+                                </div>
+                                <div class="form-group">
+                                    <label for="serie-name" class="col-form-label">Categorie</label>
+                                    <select id="inputcat" ng-model="caractCtrl.types.Categorie_mat_id" class="form-control">
+                                        <option ng-repeat="c in caractCtrl.categorie" value="{{c.id}}">{{c.libelle}}</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" ng-click="caractCtrl.enregistrementtype(caractCtrl.types)" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" ng-click="caractCtrl.enregistrementcaract(caractCtrl.matcaract)">Enregistrer</button>
+    </form>
+</div>

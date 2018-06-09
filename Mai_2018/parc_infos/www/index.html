@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <link rel="stylesheet" href="css/bootstrap.min.css">
+            <link rel="stylesheet" href="css/web-fonts-with-css/css/fontawesome.min.css">
+            <link rel="stylesheet" href="css/menu_generale.css">
+            <link rel="stylesheet" href="css/index.css">
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="lib/angular.min.js"></script>
+            <script src="lib/angular-route.min.js"></script>
+            <script src="lib/swx-session-storage.min.js"></script>
+            <script src="apps.js"></script>
+        </head>
+    <body ng-app="parc" ng-controller="ConnectController as connectCtrl">
+    <nav class="navbar navbar-light bg-light">
+        <a  class="navbar-brand" href="" style="background-color: #cdcdcd;padding-right: 1157px;margin-left: -15px"  >
+            <span style="font-size: 36px;color: #d61a0c;font-weight: bold">PARC INFOS</span>
+        </a>
+
+    </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1">
+                    <div class="row" ng-if="connectCtrl.afficher">
+                        <h5 style="margin-top: 10px; font-weight: bold"></h5>
+                    </div>
+                    <div class="row" ng-if="connectCtrl.afficher" style="margin-top: -25px">
+                        <div class="accordion" id="accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none;">
+                                          <span><img src="img/icon1.png" width="20px" height="20px">Materielle informatique</span>
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="#/enregistrementMat" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px">Enregistrement</li></a>
+                                            <a href="#/listeMat"style="text-decoration: none;"><li class="list-group-item list-group-item-light"> Liste de tout les materielle</li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"style="text-decoration: none;">
+                                            <span><img src="img/icon1.png" width="20px" height="20px">Beneficiaire du materielle</span>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="#/Enregistrementben" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px">Enregistrement</li></a>
+                                            <a href="#/Listebeneficiaire"style="text-decoration: none;"><li class="list-group-item list-group-item-light">Liste des Beneficiaires</li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingfour">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button"data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="text-decoration: none;">
+                                            <span><img src="img/icon1.png" width="20px" height="20px">Caracteristique du materielle</span>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="#/Enregistrementcarct" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px">Enregistrement</li></a>
+                                            <a href="#/Listematcaract"style="text-decoration: none;"><li class="list-group-item list-group-item-light">Liste des materielle</li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingfive">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button"data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"style="text-decoration: none;">
+
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px"></li></a>
+                                            <a href=""style="text-decoration: none;"><li class="list-group-item list-group-item-light"></li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingsix">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button"data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"style="text-decoration: none;">
+
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px"></li></a>
+                                            <a href=""style="text-decoration: none;"><li class="list-group-item list-group-item-light"></li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingseven">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button"data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"style="text-decoration: none;">
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="list-group" style="margin-top: -17px;">
+                                            <a href="" style="text-decoration: none;"><li class=" list-group-item list-group-item-light" style="padding-right: 80px"></li></a>
+                                            <a href=""style="text-decoration: none;"><li class="list-group-item list-group-item-light"></li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div ng-view></div>
+        </div>
+    </body>
+</html>

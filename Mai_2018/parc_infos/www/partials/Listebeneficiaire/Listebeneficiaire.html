@@ -1,0 +1,20 @@
+<div class="container" id="list">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">NOM</th>
+            <th scope="col">DEPARTEMENT</th>
+            <th scope="col">TYPE DE  BENEFICIAIRE</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="b in listbenCtrl.benefi">
+        <td>{{b.beneficiaire}}</td>
+        <td>{{b.departements}}</td>
+        <td>{{b.type_beneficiaire}}</td>
+        <td><button type="submit" class="btn btn-primary"> Modifier</button></td>
+        <td><button type="submit" class="btn btn-danger"> Supprimer</button></td>
+        </tbody>
+    </table>
+</div>

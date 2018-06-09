@@ -1,0 +1,77 @@
+<div class="container" id="bencont">
+    <h3 style="font-weight: bold;color:#d61a0c;">Enregistrement des Beneficiaires</h3>
+    <hr>
+    <form>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Nom du Beneficiaire</label>
+                <input type="text" ng-model="beneficCtrl.beneficiaire.labelle" class="form-control" id="validationDefault01" placeholder="Nom beneficiaire" value="Dedrick" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputFonction">Departement</label>
+                <select ng-model="beneficCtrl.beneficiaire.Departement_id"  id="inputFonction" class="form-control">
+                    <option ng-repeat="b in beneficCtrl.departement "value="{{b.id}}">{{b.libelle}}</option>
+                    <option data-toggle="modal" data-target="#Dep" data-whatever="@mdo">Ajouter le departement</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputMark">Type de Beneficiaire</label>
+                <select ng-model="beneficCtrl.beneficiaire.type_beneficiaire_id" id="inputMark" class="form-control">
+                    <option ng-repeat="d in beneficCtrl.typeben "value="{{d.id}}">{{d.labelle}}</option>
+                    <option data-toggle="modal" data-target="#typeben" data-whatever="@mdo">Ajouter Type beneficiaire</option>
+                </select>
+            </div>
+            <div class="modal fade" id="typeben" tabindex="-1" role="dialog" aria-labelledby="typebenLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="typebenLabel">Enregistrement du type beneficiaire</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Nom du Type</label>
+                                    <input ng-model="beneficCtrl.typebenef.labelles" type="text" class="form-control" id="recipient-name">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit"ng-click="beneficCtrl.enregistrementtype(beneficCtrl.typebenef)" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="Dep" tabindex="-1" role="dialog" aria-labelledby="DepLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="DepLabel">Enregistrement du departement</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-dep" class="col-form-label">Nom du departement</label>
+                                    <input type="text" ng-model="beneficCtrl.departements.libelles" class="form-control" id="recipient-dep">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" ng-click="beneficCtrl.enregistrementdep(beneficCtrl.departements)" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary"ng-click="beneficCtrl.enregistrementbenef(beneficCtrl.beneficiaire)" type="submit">Enregistrer</button>
+    </form>
+</div>

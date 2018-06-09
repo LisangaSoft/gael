@@ -1,0 +1,31 @@
+#imgtitre{
+margin-left: 450px;
+    margin-top: 90px;
+}
+#titre{
+    margin-left: 350px;
+    margin-top: 1px;
+    font-size: 25px;
+    margin-right: 360px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    border-radius: 8px 8px 8px 8px;
+    color: #d61a0c;
+}
+#formc{
+    margin-left: 353px;
+}
+#formc input,button{
+    margin-top: 10px;
+}
+#formc button{
+    background-color:#d61a0c;
+}
+#formc input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 180px;
+}
+#cont{
+    margin-top: -60px;
+}
